@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.usjt.devweb.servicedesk_aula03.MainActivity">
+    tools:context="br.usjt.devweb.servicedesk_aula03.controller.MainActivity">
 
-    <EditText
-        android:layout_width="0dp"
+    <Spinner  android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/buscar_fila"
-        android:hint="@string/buscar_fila"
-        android:layout_weight="1.5"/>
+        android:layout_weight="1"
+        android:id="@+id/continente_selecionado"
+        android:entries="@array/spinner_paises"
+    />
     <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/botao_buscar"
-        android:onClick="buscarChamados"
+        android:text="@string/botao_listar"
+        android:onClick="listarPaises"
         android:layout_weight="1"/>
 
 </LinearLayout>
