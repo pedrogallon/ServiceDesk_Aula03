@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import br.usjt.devweb.servicedesk_aula03.R;
+import br.usjt.devweb.servicedesk_aula03.model.Data;
 import br.usjt.devweb.servicedesk_aula03.model.Pais;
 import br.usjt.devweb.servicedesk_aula03.model.PaisNetwork;
 
@@ -30,11 +31,15 @@ public class MainActivity extends Activity {
 
     public void listarPaises(View view) {
         String continente = spinContinente.getSelectedItem().toString();
-        if (continente.equals("Todos")) {
-            new JSONPaises().execute("https://restcountries.eu/rest/v2/all");
-        } else {
-            new JSONPaises().execute("https://restcountries.eu/rest/v2/region/" + continente);
-        }
+        Intent intent = new Intent(context, ListarPaisesActivity.class);
+        intent.putExtra(LISTA_PAISES, Data.listarPaises(continente));
+        startActivity(intent);
+
+//        if (continente.equals("Todos")) {
+//            new JSONPaises().execute("https://restcountries.eu/rest/v2/all");
+//        } else {
+//            new JSONPaises().execute("https://restcountries.eu/rest/v2/region/" + continente);
+//        }
     }
 
     private class JSONPaises extends AsyncTask<String, Void, ArrayList<Pais>> {

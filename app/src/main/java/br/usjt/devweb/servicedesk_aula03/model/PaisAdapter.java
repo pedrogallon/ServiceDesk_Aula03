@@ -40,19 +40,23 @@ public class PaisAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View v;
+
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.adapter_pais, viewGroup, false );
-        ImageView img = v.findViewById(R.id.adapter_pais_imagem);
-        TextView nome = v.findViewById(R.id.adapter_pais_nome);
-        TextView info = v.findViewById(R.id.adapter_pais_info);
+        view = inflater.inflate(R.layout.adapter_pais, viewGroup, false );
+
+
+        ImageView img = view.findViewById(R.id.adapter_pais_imagem);
+        TextView nome = view.findViewById(R.id.adapter_pais_nome);
+        TextView info = view.findViewById(R.id.adapter_pais_info);
         Pais pais = paises.get(i);
+        ViewHolder viewHolder = new ViewHolder(img, nome, info);
+        view.setTag(viewHolder);
 
         Drawable drawable = Util.getDrawable(context, paises.get(i).getCodigo3().toLowerCase());
-        img.setImageDrawable(drawable);
-        nome.setText(pais.getNome());
-        info.setText("Região: "+pais.getRegiao()+"  Capital: "+pais.getCapital());
+        viewHolder.getImg().setImageDrawable(drawable);
+        viewHolder.getNome().setText(pais.getNome());
+        viewHolder.getInfo().setText("Região: "+pais.getRegiao()+"  Capital: "+pais.getCapital());
 
-        return v;
+        return view;
     }
 }
