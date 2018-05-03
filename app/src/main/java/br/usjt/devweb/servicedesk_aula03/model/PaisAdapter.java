@@ -2,16 +2,17 @@ package br.usjt.devweb.servicedesk_aula03.model;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 import br.usjt.devweb.servicedesk_aula03.R;
+
 
 public class PaisAdapter extends BaseAdapter {
     private Context context;

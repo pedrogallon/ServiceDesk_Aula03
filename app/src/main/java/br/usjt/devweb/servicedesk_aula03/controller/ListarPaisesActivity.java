@@ -14,14 +14,14 @@ import br.usjt.devweb.servicedesk_aula03.R;
 import br.usjt.devweb.servicedesk_aula03.model.Pais;
 import br.usjt.devweb.servicedesk_aula03.model.PaisAdapter;
 
-import static br.usjt.devweb.servicedesk_aula03.model.Data.listarPaises;
+import static br.usjt.devweb.servicedesk_aula03.controller.MainActivity.LISTA_PAISES;
+
 
 
 public class ListarPaisesActivity extends Activity {
     ArrayList<Pais> paises;
     ListView listView;
     Activity context;
-    String continente;
     public static final String PAIS = "br.usjt.devweb.servicedesk_aula03.pais";
 
 
@@ -30,9 +30,7 @@ public class ListarPaisesActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_paises);
-        Intent intent = getIntent();
-        continente = intent.getStringExtra(MainActivity.CONTINENTE);
-        paises = listarPaises(continente);
+        paises = (ArrayList<Pais>) getIntent().getSerializableExtra(LISTA_PAISES);
         listView = findViewById(R.id.lista_paises);
         PaisAdapter adapter = new PaisAdapter(this, paises);
         listView.setAdapter(adapter);
