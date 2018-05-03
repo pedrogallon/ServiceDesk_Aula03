@@ -31,15 +31,16 @@ public class MainActivity extends Activity {
 
     public void listarPaises(View view) {
         String continente = spinContinente.getSelectedItem().toString();
-        Intent intent = new Intent(context, ListarPaisesActivity.class);
-        intent.putExtra(LISTA_PAISES, Data.listarPaises(continente));
-        startActivity(intent);
 
-//        if (continente.equals("Todos")) {
-//            new JSONPaises().execute("https://restcountries.eu/rest/v2/all");
-//        } else {
-//            new JSONPaises().execute("https://restcountries.eu/rest/v2/region/" + continente);
-//        }
+//        Intent intent = new Intent(context, ListarPaisesActivity.class);
+//        intent.putExtra(LISTA_PAISES, Data.listarPaises(continente));
+//        startActivity(intent);
+
+        if (continente.equals("Todos")) {
+            new JSONPaises().execute("https://restcountries.eu/rest/v2/all");
+        } else {
+            new JSONPaises().execute("https://restcountries.eu/rest/v2/region/" + continente);
+        }
     }
 
     private class JSONPaises extends AsyncTask<String, Void, ArrayList<Pais>> {
