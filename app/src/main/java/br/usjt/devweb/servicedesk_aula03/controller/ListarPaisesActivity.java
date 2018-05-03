@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 import br.usjt.devweb.servicedesk_aula03.R;
 import br.usjt.devweb.servicedesk_aula03.model.Pais;
+import br.usjt.devweb.servicedesk_aula03.model.PaisAdapter;
 
-import static br.usjt.devweb.servicedesk_aula03.model.Data.getNomes;
 import static br.usjt.devweb.servicedesk_aula03.model.Data.listarPaises;
 
 
@@ -33,10 +33,10 @@ public class ListarPaisesActivity extends Activity {
         Intent intent = getIntent();
         continente = intent.getStringExtra(MainActivity.CONTINENTE);
         paises = listarPaises(continente);
-        ArrayList<String> nomesPaises = getNomes(paises, continente);
         listView = findViewById(R.id.lista_paises);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, nomesPaises);
+        PaisAdapter adapter = new PaisAdapter(this, paises);
         listView.setAdapter(adapter);
+
         context = this;
         listView.setOnItemClickListener(
             new AdapterView.OnItemClickListener(){
