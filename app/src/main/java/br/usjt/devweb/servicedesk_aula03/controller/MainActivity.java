@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
         intent.putExtra(LISTA_PAISES, Data.listarPaises(continente));
         startActivity(intent);
 
+//      Networking
 //        if (continente.equals("Todos")) {
 //            new JSONPaises().execute("https://restcountries.eu/rest/v2/all");
 //        } else {
